@@ -2,6 +2,7 @@ package com.canhmai.ailatrieuphu;
 
 import com.canhmai.ailatrieuphu.db.entities.HighScore;
 import com.canhmai.ailatrieuphu.db.entities.Question;
+import com.canhmai.ailatrieuphu.model.Person;
 
 import java.util.List;
 
