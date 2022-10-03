@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ln_rule_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorbg"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="450dp">
+
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="480dp"
+            android:layout_gravity="top|center"
+            android:indeterminate="true"
+            android:indeterminateDrawable="@anim/rotate_bg_circle_anim"
+            android:indeterminateDuration="10000" />
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="35dp"
+            android:layout_gravity="center"
+            android:src="@drawable/bg_main_new" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="@color/orange" />
+
+        <ImageView
+            android:id="@+id/iv_m001_play"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:elevation="5dp"
+            android:focusable="true"
+            android:src="@drawable/levellist_m001playbt" />
+
+    </FrameLayout>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:paddingHorizontal="20dp">
+
+        <ImageView
+            android:id="@+id/iv_m001_about"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_app_info_new" />
+
+        <ImageView
+            android:id="@+id/iv_m001_cup"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="30dp"
+            android:src="@drawable/ic_rank_new" />
+
+        <ImageView
+            android:id="@+id/iv_m001_setting"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="30dp"
+            android:src="@drawable/ic_setting_new" />
+
+        <ImageView
+            android:id="@+id/iv_m001_rating"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="30dp"
+            android:src="@drawable/ic_ratting_new" />
+
+    </TableRow>
+
+</LinearLayout>

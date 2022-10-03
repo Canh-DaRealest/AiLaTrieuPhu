@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ln_listPeople"
+    android:layout_width="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_height="wrap_content"
+    android:background="@color/colorbg"
+    android:orientation="vertical">
+
+
+    <TableRow
+        android:layout_marginVertical="20dp"
+        android:id="@+id/tr_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="10dp"
+        android:gravity="center_horizontal">
+
+
+        <LinearLayout
+            android:id="@+id/ln_person1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_person1"
+                android:layout_width="70dp"
+                android:layout_height="71dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_ronaldo" />
+
+            <TextView
+                android:id="@+id/tv_person1_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ronaldo"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ln_person2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_person2"
+                android:layout_width="70dp"
+                android:layout_height="71dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_trump" />
+
+            <TextView
+                android:id="@+id/tv_person2_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đô nan Trăm"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+    </TableRow>
+
+    <TableRow
+        android:layout_marginBottom="20dp"
+        android:id="@+id/tr_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="10dp"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:id="@+id/ln_person3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_person3"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_thuybatluc" />
+
+            <TextView
+                android:id="@+id/tv_person3_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thùy bất lực"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ln_person4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_person4"
+                android:layout_width="70dp"
+                android:layout_height="71dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_satthudatinh" />
+
+            <TextView
+                android:id="@+id/tv_person4_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="Sát thủ đa tình"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+    </TableRow>
+</LinearLayout>

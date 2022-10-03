@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/colorbg"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/ic_help_title"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="Ý kiến khán giả"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/v_view"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        app:layout_constraintVertical_bias="0.7"
+          app:layout_constraintTop_toBottomOf="@id/v_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/ln_a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/v_view"
+        app:layout_constraintEnd_toStartOf="@id/ln_b"
+        app:layout_constraintStart_toStartOf="@id/v_view">
+
+        <TextView
+            android:id="@+id/tv_percentA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="0%"
+            android:textColor="@color/yellow"
+            android:textSize="20sp" />
+
+        <ProgressBar
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:id="@+id/progress_barA"
+            android:max="100"
+            android:progress="0"
+            android:progressTint="#2196F3"
+            android:layout_width="35dp"
+            android:layout_height="0dp"
+            android:progressDrawable="@drawable/layerbar"
+            android:layout_gravity="center_horizontal"
+        />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ln_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/v_view"
+        app:layout_constraintEnd_toStartOf="@id/ln_c"
+        app:layout_constraintStart_toEndOf="@id/ln_a">
+
+        <TextView
+            android:id="@+id/tv_percentB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0%"
+            android:layout_gravity="center"
+            android:textColor="@color/yellow"
+            android:textSize="20sp" />
+
+
+        <ProgressBar
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:id="@+id/progress_barB"
+            android:max="100"
+            android:progress="0"
+            android:progressTint="#4CAF50"
+            android:layout_width="35dp"
+            android:layout_height="0dp"
+            android:progressDrawable="@drawable/layerbar"
+            android:layout_gravity="center_horizontal"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ln_c"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/v_view"
+        app:layout_constraintEnd_toStartOf="@id/ln_d"
+        app:layout_constraintStart_toEndOf="@id/ln_b">
+
+        <TextView
+            android:id="@+id/tv_percentC"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="0%"
+            android:textColor="@color/yellow"
+            android:textSize="20sp" />
+
+        <ProgressBar
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:id="@+id/progress_barC"
+            android:max="100"
+            android:progress="0"
+            android:progressTint="#FFC107"
+            android:layout_width="35dp"
+            android:layout_height="0dp"
+            android:progressDrawable="@drawable/layerbar"
+            android:layout_gravity="center_horizontal"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:id="@+id/ln_d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/v_view"
+        app:layout_constraintEnd_toEndOf="@id/v_view"
+        app:layout_constraintStart_toEndOf="@id/ln_c">
+
+        <TextView
+            android:id="@+id/tv_percentD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="0%"
+            android:textColor="@color/yellow"
+            android:textSize="20sp" />
+
+        <ProgressBar
+            android:id="@+id/progress_barD"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="35dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:max="100"
+            android:progress="0"
+            android:progressTint="#F44336"
+            android:progressDrawable="@drawable/layerbar" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_ansA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="A"
+        android:textColor="@color/yellow"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/tv_ansB"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ln_a" />
+
+    <TextView
+        android:id="@+id/tv_ansB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="B"
+        android:textColor="@color/yellow"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/tv_ansC"
+        app:layout_constraintStart_toEndOf="@id/tv_ansA"
+        app:layout_constraintTop_toBottomOf="@id/ln_b" />
+
+    <TextView
+        android:id="@+id/tv_ansC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="C"
+        android:textColor="@color/yellow"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/tv_ansD"
+        app:layout_constraintStart_toEndOf="@id/tv_ansB"
+        app:layout_constraintTop_toBottomOf="@id/ln_c" />
+
+    <TextView
+        android:id="@+id/tv_ansD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="D"
+        android:textColor="@color/yellow"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_ansC"
+        app:layout_constraintTop_toBottomOf="@id/ln_d" />
+
+    <Button
+        android:id="@+id/bt_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/purple_200"
+        android:elevation="5dp"
+        android:outlineAmbientShadowColor="@color/white"
+        android:outlineSpotShadowColor="@color/white"
+        android:text="Đóng"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/v_view" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

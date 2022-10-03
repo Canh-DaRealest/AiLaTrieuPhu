@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fr_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorbg"
+    android:fitsSystemWindows="true">
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@anim/rotate_bg_circle_anim"
+        android:indeterminateDuration="20000"
+        tools:ignore="Suspicious0dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/ln_rule_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_lv15"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginVertical="7dp"
+                android:background="@drawable/bg_player_image_money_milestone"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/money_150_000_000"
+                android:textColor="@color/orange"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/tv_lv14"
+                style="@style/textviewmoney"
+                android:text="@string/money_85_000_000" />
+
+            <TextView
+                android:id="@+id/tv_lv13"
+                style="@style/textviewmoney"
+                android:text="@string/money_60_000_000" />
+
+            <TextView
+                android:id="@+id/tv_lv12"
+                style="@style/textviewmoney"
+                android:text="@string/money_40_000_000" />
+
+            <TextView
+                android:id="@+id/tv_lv11"
+                style="@style/textviewmoney"
+                android:text="@string/money_30_000_000" />
+
+
+            <TextView
+                android:id="@+id/tv_lv10"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginVertical="7dp"
+                android:background="@drawable/bg_player_image_money_milestone"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/money_22_000_000"
+                android:textColor="@color/yellow"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/tv_lv9"
+                style="@style/textviewmoney"
+
+                android:text="@string/money_14_000_000" />
+
+            <TextView
+                android:id="@+id/tv_lv8"
+                style="@style/textviewmoney"
+                android:text="@string/money_10_000_000" />
+
+            <TextView
+                android:id="@+id/tv_lv7"
+                style="@style/textviewmoney"
+                android:text="@string/money_6_000_000" />
+
+            <TextView
+                android:id="@+id/tv_lv6"
+                style="@style/textviewmoney"
+                android:text="@string/money_3_000_000" />
+
+
+            <TextView
+                android:id="@+id/tv_lv5"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginVertical="7dp"
+                android:background="@drawable/bg_player_image_money_milestone"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/money_2_000_000"
+                android:textColor="@color/yellow"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/tv_lv4"
+                style="@style/textviewmoney"
+                android:text="@string/money_1_000_000" />
+
+            <TextView
+                android:id="@+id/tv_lv3"
+                style="@style/textviewmoney"
+                android:text="@string/money_600_000" />
+
+            <TextView
+                android:id="@+id/tv_lv2"
+                style="@style/textviewmoney"
+                android:text="@string/money_400_000" />
+
+            <TextView
+                android:id="@+id/tv_lv1"
+                style="@style/textviewmoney"
+                android:text="@string/money_200_000" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/bt_hide"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#864E07"
+        android:text="@string/hide"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="start|bottom"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:elevation="10dp"
+        android:src="@drawable/back"
+        android:visibility="gone"
+        tools:ignore="ContentDescription" />
+</FrameLayout>
