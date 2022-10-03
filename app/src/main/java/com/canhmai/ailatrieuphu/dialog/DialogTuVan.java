@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 
 import com.canhmai.ailatrieuphu.App;
 import com.canhmai.ailatrieuphu.MediaManager;
-import com.canhmai.ailatrieuphu.Person;
+import com.canhmai.ailatrieuphu.model.Person;
 import com.canhmai.ailatrieuphu.R;
 import com.canhmai.ailatrieuphu.databinding.DialogToTuVanBinding;
 import com.canhmai.ailatrieuphu.view.act.OnMainCallBack;

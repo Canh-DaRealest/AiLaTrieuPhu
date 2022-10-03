@@ -1,4 +1,4 @@
-package com.canhmai.ailatrieuphu;
+package com.canhmai.ailatrieuphu.model;
 
 public class Person {
 
