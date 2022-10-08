@@ -44,9 +44,9 @@ public class M003PlayFragment extends BaseFragment<CommonVM, M003PlayFragmentBin
     TextView hide1;  // dap an bi an
     List<TextView> hiddenList = new ArrayList<>();  // list chua dap an bi an
     private boolean isGiveUp = true;
-    private boolean isShowed;
-    private boolean isChampion;
-    private boolean isSearchable;
+    private boolean isShowed = false;
+    private boolean isChampion = false ;
+    private boolean isSearchable = true;
     private boolean isAskable = true;
     private int progress;
     private View viewClicked;   // view da duoc click chua
