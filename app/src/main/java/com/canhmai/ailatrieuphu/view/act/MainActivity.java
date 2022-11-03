@@ -8,7 +8,7 @@ import android.view.animation.AnimationUtils;
 import androidx.fragment.app.Fragment;
 
 import com.canhmai.ailatrieuphu.App;
-import com.canhmai.ailatrieuphu.MediaManager;
+import com.canhmai.ailatrieuphu.model.MediaManager;
 import com.canhmai.ailatrieuphu.R;
 import com.canhmai.ailatrieuphu.databinding.ActivityMainBinding;
 import com.canhmai.ailatrieuphu.dialog.NoticeDialog;
@@ -59,7 +59,6 @@ public class MainActivity extends BaseActivity<CommonVM, ActivityMainBinding> {
 
                             binding.ivLogo.setVisibility(View.GONE);
                             binding.tvPercent.setVisibility(View.GONE);
-                            binding.ivLogoName.setVisibility(View.GONE);
                             binding.ivProgressbarLoading.setVisibility(View.GONE);
 
 

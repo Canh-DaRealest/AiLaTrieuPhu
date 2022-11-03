@@ -5,6 +5,7 @@ import android.app.Application;
 import androidx.room.Room;
 
 import com.canhmai.ailatrieuphu.db.AppDB;
+import com.canhmai.ailatrieuphu.model.MediaManager;
 
 public class App extends Application {
     private static App instance;

@@ -12,7 +12,6 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.canhmai.ailatrieuphu.App;
-import com.canhmai.ailatrieuphu.MediaManager;
 import com.canhmai.ailatrieuphu.R;
 import com.canhmai.ailatrieuphu.databinding.M001StartFragmentBinding;
 import com.canhmai.ailatrieuphu.dialog.DialogRatingMe;

@@ -19,6 +19,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:elevation="11dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -31,6 +32,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:elevation="11dp"
             android:id="@+id/tv_total_money"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -65,6 +67,7 @@
 
         <Button
             android:id="@+id/bt_save"
+            android:elevation="11dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

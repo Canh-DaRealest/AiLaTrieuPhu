@@ -45,6 +45,7 @@
 
             <Button
                 android:id="@+id/bt_no"
+                android:elevation="11dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -63,6 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="15dp"
+                android:elevation="11dp"
                 android:backgroundTint="@color/colordialog"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"

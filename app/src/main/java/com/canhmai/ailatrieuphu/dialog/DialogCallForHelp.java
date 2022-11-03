@@ -16,7 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.canhmai.ailatrieuphu.App;
-import com.canhmai.ailatrieuphu.MediaManager;
+import com.canhmai.ailatrieuphu.model.MediaManager;
 import com.canhmai.ailatrieuphu.R;
 import com.canhmai.ailatrieuphu.databinding.DialogCallForHelpBinding;
 import com.canhmai.ailatrieuphu.view.act.OnMainCallBack;
@@ -112,9 +112,9 @@ public class DialogCallForHelp extends Dialog implements View.OnClickListener {
         App.getInstance().getMediaManager().playGameSound(MediaManager.KET_NOI_DIEN_THOAI, new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                calling.setText("Đã kết nối.....");
-                calling.setTextColor(App.getInstance().getResources().getColor(R.color.yellow));
-                telephone.setImageResource(R.drawable.oncall);
+//                calling.setText("Đã kết nối.....");
+//                calling.setTextColor(App.getInstance().getResources().getColor(R.color.yellow));
+//                telephone.setImageResource(R.drawable.oncall);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -140,10 +140,10 @@ public class DialogCallForHelp extends Dialog implements View.OnClickListener {
         view = LayoutInflater.from(context).inflate(R.layout.view_callling_person, null);
         choosePerson = view.findViewById(R.id.iv_choosePerson);
         choosePersonName = view.findViewById(R.id.tv_choosePersonName);
-        calling = view.findViewById(R.id.tv_onCall);
+      //  calling = view.findViewById(R.id.tv_onCall);
         myAnswerIs = view.findViewById(R.id.tv_ans_is);
         close = view.findViewById(R.id.bt_close2);
-        telephone = view.findViewById(R.id.iv_telephone);
+      //  telephone = view.findViewById(R.id.iv_telephone);
         close.setClickable(false);
         close.setVisibility(View.INVISIBLE);
         List<String> voicelist = new ArrayList<>();
@@ -162,14 +162,14 @@ public class DialogCallForHelp extends Dialog implements View.OnClickListener {
         myAnswerIs.setText(voicelist.get(0));
         myAnswerIs.setVisibility(View.INVISIBLE);
 
-        calling.setText("Đang kết nối.....");
+      //  calling.setText("Đang kết nối.....");
         binding.frAddView.addView(view);
         choosePerson.setImageResource(photoId);
         Animation animation = AnimationUtils.loadAnimation(context, R.anim.rotate_bg_circle_anim);
         animation.setDuration(20000);
         animation.setRepeatMode(Animation.INFINITE);
         animation.setRepeatCount(Animation.INFINITE);
-        choosePerson.startAnimation(animation);
+     //   choosePerson.startAnimation(animation);
         choosePersonName.setText(personName.getText().toString());
     }
 

@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 
 import com.canhmai.ailatrieuphu.App;
-import com.canhmai.ailatrieuphu.MediaManager;
+import com.canhmai.ailatrieuphu.model.MediaManager;
 import com.canhmai.ailatrieuphu.R;
 import com.canhmai.ailatrieuphu.databinding.M002RuleFragmentBinding;
 import com.canhmai.ailatrieuphu.dialog.NoticeDialog;
