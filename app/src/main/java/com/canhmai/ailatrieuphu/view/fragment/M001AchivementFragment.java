@@ -8,9 +8,10 @@ import com.canhmai.ailatrieuphu.App;
 import com.canhmai.ailatrieuphu.adapter.RecycleViewAdapter;
 import com.canhmai.ailatrieuphu.databinding.M001ArchivementFragmentBinding;
 import com.canhmai.ailatrieuphu.view.act.MainActivity;
+import com.canhmai.ailatrieuphu.viewmodel.AchivementVM;
 import com.canhmai.ailatrieuphu.viewmodel.CommonVM;
 
-public class M001AchivementFragment extends BaseFragment<CommonVM, M001ArchivementFragmentBinding> {
+public class M001AchivementFragment extends BaseFragment<AchivementVM, M001ArchivementFragmentBinding> {
     public static final String TAG = M001AchivementFragment.class.getName();
     private RecycleViewAdapter recycleViewAdapter;
 
@@ -21,7 +22,7 @@ public class M001AchivementFragment extends BaseFragment<CommonVM, M001Archiveme
         new Thread() {
             @Override
             public void run() {
-                App.getInstance().getStorage().listHighScore = App.getInstance().getDb().getHighScoreDAO().getAll();
+           viewModel.getListHighScore();
                 Log.e(TAG, "run: Danh sach diem cao " + App.getInstance().getStorage().listHighScore.size());
                 recycleViewAdapter = new RecycleViewAdapter(mContext, App.getInstance().getStorage().listHighScore);
                 MainActivity mainActivity = (MainActivity) mContext;
@@ -40,8 +41,8 @@ public class M001AchivementFragment extends BaseFragment<CommonVM, M001Archiveme
     }
 
     @Override
-    protected Class<CommonVM> getClassViewModel() {
-        return CommonVM.class;
+    protected Class<AchivementVM> getClassViewModel() {
+        return AchivementVM.class;
     }
 
     @Override

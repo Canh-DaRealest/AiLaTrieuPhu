@@ -70,7 +70,8 @@ public class MainActivity extends BaseActivity<CommonVM, ActivityMainBinding> {
                                     }
                                 });
 
-                            showFragment(M001StartFragment.TAG, null, false);
+
+                         showFragment(M001StartFragment.TAG, null, false);
 
                         });
                         return;

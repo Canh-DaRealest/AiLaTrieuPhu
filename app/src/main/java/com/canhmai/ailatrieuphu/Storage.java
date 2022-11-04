@@ -10,20 +10,5 @@ public class Storage {
     public List<Question> listQ;
     public List<HighScore> listHighScore;
     public List<Person> personList;
-    public Person personTrue;
-
-    public List<Question> getListQ() {
-        return listQ;
-    }
-
-    public void setListQuestion(List<Question> listQuestion) {
-        listQ = listQuestion;
-    }
-
-    //doi cau hoi
-    public void replaceQuestion(Question qs, int level) {
-        listQ.set(listQ.indexOf(listQ.get(level)), qs);
-    }
-
 
 }
