@@ -2,7 +2,6 @@ package com.canhmai.ailatrieuphu.view.fragment;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.graphics.Paint;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -38,7 +37,11 @@ import java.util.Random;
 public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentBinding> {
     public static final String TAG = M003PlayFragment.class.getName();
     public CountDownTimer countDownTimer;  // dem nguoc
-    private TextView[] textViewMileStone;    //moc tien thuong
+    private final TextView[] textViewMileStone = new TextView[15];    //moc tien thuong
+
+    public long getCurrentTime() {
+        return viewModel.getCurrentTime();
+    }
 
     @Override
     protected void initViews() {
@@ -52,23 +55,23 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
     }
 
     private void addTextViewMileStone() {
-        textViewMileStone = new TextView[15];
 
-        textViewMileStone[0] = binding.include.tvLv1;
-        textViewMileStone[1] = binding.include.tvLv2;
-        textViewMileStone[2] = binding.include.tvLv3;
-        textViewMileStone[3] = binding.include.tvLv4;
-        textViewMileStone[4] = binding.include.tvLv5;
-        textViewMileStone[5] = binding.include.tvLv6;
-        textViewMileStone[6] = binding.include.tvLv7;
-        textViewMileStone[7] = binding.include.tvLv8;
-        textViewMileStone[8] = binding.include.tvLv9;
-        textViewMileStone[9] = binding.include.tvLv10;
-        textViewMileStone[10] = binding.include.tvLv11;
-        textViewMileStone[11] = binding.include.tvLv12;
-        textViewMileStone[12] = binding.include.tvLv13;
-        textViewMileStone[13] = binding.include.tvLv14;
-        textViewMileStone[14] = binding.include.tvLv15;
+
+        textViewMileStone[0] = binding.includeMilestone.tvLv1;
+        textViewMileStone[1] = binding.includeMilestone.tvLv2;
+        textViewMileStone[2] = binding.includeMilestone.tvLv3;
+        textViewMileStone[3] = binding.includeMilestone.tvLv4;
+        textViewMileStone[4] = binding.includeMilestone.tvLv5;
+        textViewMileStone[5] = binding.includeMilestone.tvLv6;
+        textViewMileStone[6] = binding.includeMilestone.tvLv7;
+        textViewMileStone[7] = binding.includeMilestone.tvLv8;
+        textViewMileStone[8] = binding.includeMilestone.tvLv9;
+        textViewMileStone[9] = binding.includeMilestone.tvLv10;
+        textViewMileStone[10] = binding.includeMilestone.tvLv11;
+        textViewMileStone[11] = binding.includeMilestone.tvLv12;
+        textViewMileStone[12] = binding.includeMilestone.tvLv13;
+        textViewMileStone[13] = binding.includeMilestone.tvLv14;
+        textViewMileStone[14] = binding.includeMilestone.tvLv15;
 
 
     }
@@ -81,7 +84,7 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
         binding.ivChangeQuestion.setOnClickListener(this);
         binding.iv5050.setOnClickListener(this);
         binding.ivAskAudience.setOnClickListener(this);
-        binding.include.btHide.setOnClickListener(this);
+        binding.includeMilestone.btHide.setOnClickListener(this);
         binding.ivSearch.setOnClickListener(this);
         binding.ivCall.setOnClickListener(this);
         binding.tvA.setOnClickListener(this);
@@ -123,7 +126,7 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
 
         viewModel.setAskAbleState(false);
         viewModel.setButtonState(false);
-        setClickableButton(viewModel.getButtonState());
+        setClickableButton();
 
         binding.ivTuVan.setImageResource(R.drawable.circle_tuvan_active);
         DialogTuVan dialogTuVan = new DialogTuVan(mContext);
@@ -135,7 +138,7 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
             public void onDismiss(DialogInterface dialog) {
                 binding.ivTuVan.setImageResource(R.drawable.circle_tuvan_off);
                 setCountDown(viewModel.getCurrentTime());
-                setClickableButton(viewModel.getButtonState());
+                setClickableButton();
             }
         });
 
@@ -194,36 +197,23 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
 
     //show moc tien hien tai
     private void showMoneyLevel() {
+
         setStateButton(false);
         openAndCloseDrawer(true, true);
         int level = viewModel.getCurrentLevel();
-        if (level - 1 >= 0) {
-
-            if (level - 1 == 4 || level - 1 == 9 || level - 1 == 14) {
-                textViewMileStone[level - 1].setBackgroundResource(R.drawable.bg_player_image_money_milestone);
-                //set paint flag
-                textViewMileStone[level - 1].setPaintFlags(textViewMileStone[level - 1].getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-            } else {
-                textViewMileStone[level - 1].setBackground(null);
-                //set paint flag
-                textViewMileStone[level - 1].setPaintFlags(textViewMileStone[level - 1].getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-            }
+        if (level > 0) {
+            textViewMileStone[level - 1].setBackground(null);
         }
-
-
         textViewMileStone[level].setBackgroundResource(R.drawable.bg_player_image_money_curent);
-
-        viewModel.setCurrentLevel(viewModel.getCurrentLevel());
+//						viewModel.setCurrentLevel(level);
 
         loadQuestionSound();
 
     }
 
     private void setStateButton(boolean stateButton) {
-        Log.e(TAG, "setStateButton: State1 " + stateButton);
         viewModel.setButtonState(stateButton);
-        Log.e(TAG, "setStateButton: State11 " + stateButton);
-        setClickableButton(viewModel.getButtonState());
+        setClickableButton();
     }
 
     //kiem tra dap an
@@ -320,14 +310,8 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
                         } else {
                             textView.setBackground(null);
                         }
-                        //remove paintflag
-                        if ((textView.getPaintFlags() & Paint.STRIKE_THRU_TEXT_FLAG) > 0) {
-                            textView.setPaintFlags(textView.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
-                        }
                     }
-                    setBackgroundAns();
                     openAndCloseDrawer(true, true);
-
                     App.getInstance().getMediaManager().playGameSound(MediaManager.GO_FIND, new MediaPlayer.OnCompletionListener() {
                         @Override
                         public void onCompletion(MediaPlayer mp) {
@@ -341,8 +325,6 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
                     onMainCallBack.showFragment(M001StartFragment.TAG, false, false);
                     viewModel.setAllowBacked(true);
                 }
-
-                handleFireWorkAnimation(false);
             }
         });
         noticeDialog.show();
@@ -354,7 +336,7 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
         getAnswerTextView(viewModel.getIDTrueCase()).setBackgroundResource(R.drawable.ic_answer_background_true);
         startAnimation(getAnswerTextView(viewModel.getIDTrueCase()));
 
-        if (viewModel.getCurrentLevel() - 1 == 14) {
+        if (viewModel.getCurrentLevel() == 14) {
             App.getInstance().getMediaManager().playGameSound(MediaManager.CAU_15_DUNG, new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
@@ -364,6 +346,7 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
                 }
             });
         } else {
+
             App.getInstance().getMediaManager().playGameSound(trueAns, new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
@@ -381,23 +364,26 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
 
 
     private void continueGame() {
-        String money = (textViewMileStone[viewModel.getCurrentLevel() - 1].getText().toString());
+
+        String money = (textViewMileStone[viewModel.getCurrentLevel()].getText().toString());
+
         binding.tvMoneyCount.setText(money);
         //tra loi dung cau 5
-        if (viewModel.getCurrentLevel() - 1 == 4) { // lv =5, lv = 10, lv = 15  .. textviewlevel[level-1] =5
+        if (viewModel.getCurrentLevel() == 4) { // lv =5, lv = 10, lv = 15  .. textviewlevel[level-1] =5
 
             M003PlayFragment.this.doCongratulate(MediaManager.VUOT_MOC_1);
 
             //tra loi dung cau 10
-        } else if (viewModel.getCurrentLevel() - 1 == 9) {
+        } else if (viewModel.getCurrentLevel() == 9) {
 
             M003PlayFragment.this.doCongratulate(MediaManager.VUOT_MOC_2);
 
             //tra loi dung cau 15
-        } else if (viewModel.getCurrentLevel() - 1 == 14) {
+        } else if (viewModel.getCurrentLevel() == 14) {
             M003PlayFragment.this.doCongratulate(MediaManager.VUOT_MOC_3);
 
         } else {
+            viewModel.setCurrentLevel(viewModel.getCurrentLevel() + 1);
             new Handler().postDelayed(M003PlayFragment.this::showMoneyLevel, 1000);
         }
     }
@@ -434,7 +420,7 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
             App.getInstance().getMediaManager().playGameSound(vuotMocSound, new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
-
+                    viewModel.setCurrentLevel(viewModel.getCurrentLevel() + 1);
                     M003PlayFragment.this.showMoneyLevel();
 
                 }
@@ -457,6 +443,7 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
                 @Override
                 public void onCompletion(MediaPlayer mp) {
                     openAndCloseDrawer(false, false);
+                    viewModel.setCurrentLevel(viewModel.getCurrentLevel() + 1);
                     M003PlayFragment.this.showMoneyLevel();
 
                 }
@@ -468,24 +455,15 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
         if (state) {
             binding.lottieFirework1.setVisibility(View.VISIBLE);
             binding.lottieFirework2.setVisibility(View.VISIBLE);
-            binding.lottieFirework3.setVisibility(View.VISIBLE);
-            binding.lottieFirework4.setVisibility(View.VISIBLE);
 
             binding.lottieFirework1.playAnimation();
             binding.lottieFirework2.playAnimation();
-
-            binding.lottieFirework3.playAnimation();
-            binding.lottieFirework4.playAnimation();
         } else {
             binding.lottieFirework1.setVisibility(View.GONE);
             binding.lottieFirework2.setVisibility(View.GONE);
-            binding.lottieFirework3.setVisibility(View.GONE);
-            binding.lottieFirework4.setVisibility(View.GONE);
 
             binding.lottieFirework1.cancelAnimation();
             binding.lottieFirework2.cancelAnimation();
-            binding.lottieFirework3.cancelAnimation();
-            binding.lottieFirework4.cancelAnimation();
         }
 
     }
@@ -493,9 +471,9 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
     //xu ly am thanh cho cau hoi
     private void loadQuestionSound() {
 
-        App.getInstance().getMediaManager().playGameSound(App.getInstance().getMediaManager().getSoundLevel(viewModel.getCurrentLevel() - 1), mp -> {
-            if (viewModel.getCurrentLevel() - 1 == 4 || viewModel.getCurrentLevel() - 1 == 9 || viewModel.getCurrentLevel() - 1 == 14) { //vd: lv =5, lv = 10, lv = 15 .... textViewLevel[level - 1]=tv_lv4
-                textViewMileStone[viewModel.getCurrentLevel() - 1].setBackgroundResource(R.drawable.bg_player_image_money_curent);
+        App.getInstance().getMediaManager().playGameSound(App.getInstance().getMediaManager().getSoundLevel(viewModel.getCurrentLevel()), mp -> {
+            if (viewModel.getCurrentLevel() == 4 || viewModel.getCurrentLevel() == 9 || viewModel.getCurrentLevel() == 14) { //vd: lv =5, lv = 10, lv = 15 .... textViewLevel[level - 1]=tv_lv4
+                textViewMileStone[viewModel.getCurrentLevel()].setBackgroundResource(R.drawable.bg_player_image_money_curent);
                 App.getInstance().getMediaManager().playGameSound(MediaManager.IMPORTANT, mp1 -> {
                     startGame();
                 });
@@ -528,15 +506,18 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
         viewModel.setBooleanHiden(false);
 
         viewModel.setAllowBacked(true);
-        int lv = viewModel.getCurrentLevel() - 1;
+        int lv = viewModel.getCurrentLevel();
 
         viewModel.setQuestionAtCurrentLevel(viewModel.getListQuestion().get(lv));
         Question question = viewModel.getQuestionAtCurrentLevel();
+
         viewModel.setTrueCase(question.getTrueCase());
+        Log.e(TAG, "startGame: truecase" + question.getTrueCase()   );
+        Log.e(TAG, "startGame: current level" +lv   );
         binding.tvQuestionNumber.setText(String.format("Câu %d", lv + 1));
 
         binding.tvShowQuestion.setText(question.getQuestion());
-        Log.i(TAG, "Question " + question.toString());
+
         binding.tvA.setText(String.format("A:  %s", question.getCaseA()));
         binding.tvB.setText(String.format("B:  %s", question.getCaseB()));
         binding.tvC.setText(String.format("C:  %s", question.getCaseC()));
@@ -560,11 +541,11 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
     }
 
     private void playGameSound() {
-        if (viewModel.getCurrentLevel() - 1 <= 4) {
+        if (viewModel.getCurrentLevel() < 4) {
             App.getInstance().getMediaManager().playBG(MediaManager.BG_MOC1);
-        } else if (viewModel.getCurrentLevel() - 1 <= 9) {
+        } else if (viewModel.getCurrentLevel() < 9) {
             App.getInstance().getMediaManager().playBG(MediaManager.BG_MOC2);
-        } else if (viewModel.getCurrentLevel() - 1 <= 14) {
+        } else if (viewModel.getCurrentLevel() < 14) {
             App.getInstance().getMediaManager().playBG(MediaManager.BG_MOC3);
         }
     }
@@ -618,16 +599,15 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
 
     //hien list tien
     private void showListMoney() {
-        textViewMileStone[viewModel.getCurrentLevel() - 1].setBackgroundResource(R.drawable.bg_player_image_money_curent);
+        textViewMileStone[viewModel.getCurrentLevel()].setBackgroundResource(R.drawable.bg_player_image_money_curent);
         openAndCloseDrawer(true, false);
 
 
     }
 
     //trang thai click
-    private void setClickableButton(boolean state) {
-        Log.e(TAG, "setStateButton: State2 " + state);
-//        boolean state = viewModel.getButtonState();
+    private void setClickableButton() {
+        boolean state = viewModel.getButtonState();
         binding.tvA.setClickable(state);
         binding.tvB.setClickable(state);
         binding.tvC.setClickable(state);
@@ -709,9 +689,12 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
                         new Thread() {
                             @Override
                             public void run() {
-                                viewModel.setQuestionChange(App.getInstance().getDb().getQuestionDAO().getQuestionAtLevel(viewModel.getCurrentLevel(), viewModel.getCurrentId()));
-                                viewModel.replaceCurrentQuestion(viewModel.getQuestionChange(), viewModel.getCurrentLevel() - 1);
+                                int level = viewModel.getCurrentLevel() + 1;
 
+                                viewModel.setQuestionChange(App.getInstance().getDb().getQuestionDAO().getQuestionAtLevel(level, viewModel.getCurrentId()));
+                                viewModel.replaceCurrentQuestion(viewModel.getQuestionChange(), viewModel.getCurrentLevel());
+                                Log.e(TAG, "run: " + viewModel.getQuestionChange().toString());
+                                Log.e(TAG, "run: " + " /// " + viewModel.getListQuestion().get(viewModel.getCurrentLevel()).toString());
                                 MainActivity mainActivity = (MainActivity) mContext;
                                 mainActivity.runOnUiThread(() -> {
                                     binding.ivChangeQuestion.setImageResource(R.drawable.ic__change_question_x);
@@ -746,7 +729,7 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
         Window window = dialogCallForHelp.getWindow();
         window.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         dialogCallForHelp.show();
-        dialogCallForHelp.setTrueAnswer(viewModel.getListQuestion().get(viewModel.getCurrentLevel()-1).getTrueCase());
+        dialogCallForHelp.setTrueAnswer(viewModel.getListQuestion().get(viewModel.getCurrentLevel()).getTrueCase());
 
         App.getInstance().getMediaManager().playGameSound(MediaManager.CALL_WHO, mp -> dialogCallForHelp.setClickable(true));
         dialogCallForHelp.setOnDismissListener(dialog -> {
@@ -990,7 +973,7 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
     private void sayGoodBye() {
         //cam on ban.....
         App.getInstance().getMediaManager().playGameSound(MediaManager.THANKS, mp -> {
-            if (!viewModel.getBooleanGiveUpState()) {
+            if (viewModel.getBooleanGiveUpState()) {
 
                 playAgain();
 
@@ -1012,10 +995,6 @@ public class M003PlayFragment extends BaseFragment<GamePlayVM, M003PlayFragmentB
     @Override
     protected M003PlayFragmentBinding initViewBinding(LayoutInflater inflater) {
         return M003PlayFragmentBinding.inflate(inflater);
-    }
-
-    public long getCurrentTime() {
-        return viewModel.getCurrentTime();
     }
 }
 

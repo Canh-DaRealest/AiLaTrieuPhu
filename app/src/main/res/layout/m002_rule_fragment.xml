@@ -79,7 +79,6 @@
             <TextView
                 android:id="@+id/tv_lv9"
                 style="@style/textviewmoney"
-
                 android:text="@string/money_14_000_000" />
 
             <TextView

@@ -62,16 +62,15 @@ public class MainActivity extends BaseActivity<CommonVM, ActivityMainBinding> {
                             binding.ivProgressbarLoading.setVisibility(View.GONE);
 
 
-                                App.getInstance().getMediaManager().playBG2(MediaManager.NHAC_MO_DAU, new MediaPlayer.OnCompletionListener() {
-                                    @Override
-                                    public void onCompletion(MediaPlayer mp) {
+                            App.getInstance().getMediaManager().playBG2(MediaManager.NHAC_MO_DAU, new MediaPlayer.OnCompletionListener() {
+                                @Override
+                                public void onCompletion(MediaPlayer mp) {
 
-                                        App.getInstance().getMediaManager().playBG(MediaManager.BG_SOUND);
-                                    }
-                                });
+                                    App.getInstance().getMediaManager().playBG(MediaManager.BG_SOUND);
+                                }
+                            });
 
-
-                         showFragment(M001StartFragment.TAG, null, false);
+                            showFragment(M001StartFragment.TAG, null, false);
 
                         });
                         return;
@@ -195,7 +194,6 @@ public class MainActivity extends BaseActivity<CommonVM, ActivityMainBinding> {
             }
         });
         noticeDialog.show();
-
 
     }
 

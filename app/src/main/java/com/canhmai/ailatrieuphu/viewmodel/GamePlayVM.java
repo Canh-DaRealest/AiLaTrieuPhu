@@ -1,15 +1,38 @@
 package com.canhmai.ailatrieuphu.viewmodel;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.media.MediaPlayer;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.view.View;
+import android.view.Window;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModel;
 
 import com.canhmai.ailatrieuphu.App;
+import com.canhmai.ailatrieuphu.R;
 import com.canhmai.ailatrieuphu.db.entities.Question;
+import com.canhmai.ailatrieuphu.dialog.DialogAudience;
+import com.canhmai.ailatrieuphu.dialog.DialogCallForHelp;
+import com.canhmai.ailatrieuphu.dialog.DialogHighScore;
+import com.canhmai.ailatrieuphu.dialog.DialogSearch;
+import com.canhmai.ailatrieuphu.dialog.NoticeDialog;
 import com.canhmai.ailatrieuphu.model.GameLogic;
+import com.canhmai.ailatrieuphu.model.MediaManager;
+import com.canhmai.ailatrieuphu.view.act.MainActivity;
+import com.canhmai.ailatrieuphu.view.fragment.M001StartFragment;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class GamePlayVM extends ViewModel {
 
@@ -55,7 +78,7 @@ public class GamePlayVM extends ViewModel {
 
 
 				public int getCurrentLevel() {
-								return gameLogic.getLevel() + 1;
+								return gameLogic.getLevel();
 				}
 
 
@@ -64,7 +87,7 @@ public class GamePlayVM extends ViewModel {
 
 
 				public boolean getButtonState() {
-								return gameLogic.getStateButton();
+								return gameLogic.getbuttonClickState();
 				}
 
 				public boolean getBooleanGiveUpState() {
@@ -220,6 +243,7 @@ public class GamePlayVM extends ViewModel {
 				public void setupGameLogic() {
 
 								gameLogic = new GameLogic();
+								setCurrentLevel(0);
 				}
 }
 
